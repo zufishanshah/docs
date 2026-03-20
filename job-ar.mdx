@@ -1,0 +1,219 @@
+---
+title: "Steps: Set Up Job Changes "
+---
+
+\
+This topic is relevant to the enhanced change job experience. The new change job experience is available to all customers at this time.
+
+Review setup considerations for the
+
+_Change Job_
+
+business process.
+
+Set up the
+
+_Change Job_
+
+business process to make staffing changes for employees and contingent workers, including:
+
+- Contract changes.
+- Demotions.
+- Lateral job changes.
+- Location changes.
+- Promotions.
+- Transfers.
+
+1. [**Steps: Set Up Security for Change Job**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/change-job/new-change-job/dan1370796492207.html).
+2. [**Set Up Reasons for Job Changes**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/change-job/new-change-job/dan1370796489468.html).
+3. [**Set Up Change Job Templates**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/change-job/new-change-job/ryf1558646957580.html) .
+   You can configure compensation templates that map to a Change Job reason. Workday uses that template on the Change Job template.
+4. (Optional) Access the
+   **Edit Tenant Setup - HCM**
+   task to configure these
+   **Staffing**
+   options:
+   - **Change Job Default Headcount Option**
+   - **Change Job Use Default Organizations for Job Management**
+   - **Change Job Default for Move Team with Manager**
+   - **Enable Job Overlap for Vacating Positions**
+   - **Automatically Select Is This Position Available for Overlap on Vacating Events**
+   - **Enable Job Overlap on Position Restrictions**
+   - **Allow Override of Restrictions on Staffing Events**
+   See [**Reference: Edit Tenant Setup - HCM**](https://doc.workday.com/admin-guide/en-us/manage-workday/tenant-configuration/tenant-setup/dan1370797339945.html).
+5. Configure the
+   _Change Job_
+   business process in the Staffing functional area.
+   For a list of allowed actions and approval options in
+   _Change Job_
+   , access the
+   **Business Process Configuration Options**
+   report. Your business process steps must follow a specific order to avoid errors. Ensure that:
+   - _Change Job_
+     is first in the process order.
+   - Each consolidated subprocess is an action step on the
+     _Change Job_
+     business process definition, including the
+     _Change Organization Assignment_
+     step. You must add these steps before the completion step.
+   - _Propose Compensation Change_
+     is last in the process order.
+   - There's a review step for
+     _Propose Compensation Change_
+     in the
+     _Change Job_
+     business process definition to prevent unreviewed compensation changes.
+   - To ensure correct routing for the
+     _Request Transfer_
+     initiating action, include review steps for both the current and receiving manager. Assign a review step to an HR Partner or other role that has security access to all sections in the
+     _Change Job_
+     business process. This step ensures that someone reviews all job changes, including details which managers might not be able to view.
+   Some action steps have Workday delivered condition rules. Example: You create an action step for
+   _Change Superior Organization_
+   . Workday applies the following condition rule:
+   _Is Move Manager's Team selected or if it is a web service request, and if there are subordinate organizations to be moved._
+   See [**Steps: Configure Business Process Definitions**](https://doc.workday.com/admin-guide/en-us/manage-workday/business-processes/customize-business-processes/dan1370797385122.html).
+6. (Optional) Set up consolidated templates if you want to initiate the configured subprocesses as part of the Change Job workflow.
+   - From the related actions of the Change Job business process type, select Business Process\> Configure Consolidated Template. You can configure Assign Employee Collective Agreement, Change Job, Change Organization Assignments for Worker, and Propose Compensation Change. Ensure that:
+     - Change Job is first in the process order.
+     - If you configure Propose Compensation Change, ensure that it's last in the process order.
+   - On the
+     _Change Job_
+     business process definition, ensure that:
+     - Each consolidated subprocess is an action step on the
+       _Change Job_
+       business process definition. You must add these steps before the completion step.
+     - There's a review step for
+       _Propose Compensation Change_
+       in the
+       _Change Job_
+       business process definition to prevent unreviewed compensation changes.
+     - You use the
+       **Business Process**
+       **Configure Consolidated Approval**
+       related action from the step to create a single approval step. The Consolidated Approval step comes after the last subprocess that's included in the consolidated approval.
+   Security: These domains in the System functional area:
+   - _Business Process Administration_
+   - _Manage: Business Process Definitions_
+   You can initiate the configured subprocess as part of the Change Job workflow. The approval step for the Change Job event includes all consolidated subprocesses. You receive all events on the template as 1 task in My Tasks. Consolidated templates might enable workers to see events that:
+   - Aren’t relevant to them.
+   - Are only relevant for workers based in other locations.
+7. (Optional) [**Set Up Rule Based Consolidated Templates for Job Changes**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/change-job/new-change-job/dan1370796491757.html).
+   You can create multiple consolidated templates with condition rules for the
+   _Change Job_
+   business process.
+8. (Optional)[**Steps: Enable Attachments on an Individual Business Process**](https://doc.workday.com/admin-guide/en-us/manage-workday/business-processes/manage-business-processes/ala1404761315058.html).
+   You can enable attachments on the
+   _Change Job_
+   business process so that you can attach documents to Initiation and Action steps.
+9. (Optional) [**Steps: Set Up Defaults for Change Job Fields**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/change-job/new-change-job/steps--set-up-defaults-for-change-job-fields.html).
+10. (Optional) [**Steps: Enable Machine Learning Recommendations for Change Job**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/change-job/new-change-job/steps--enable-machine-learning-recommenations-for-.html).
+11. (Optional) Enable autocomplete for subprocesses for the
+    _Change Job_
+    business process definition.
+    Workday recommends that you don’t enable autocomplete on the default definition for the
+    _Change Job_
+    business process. Example: The
+    _Change Job_
+    is coming through a Recruiting event.
+    See [**Set Up Security to Autocomplete Staffing Events**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/tjj1549578051156.html).
+12. (Optional) Set up Workday Assistant for Staffing.
+    You can initiate job changes through the Workday Assistant chatbot in:
+    - Your Workday tenant.
+    - Workday for Microsoft Teams.
+    - Workday for Slack.
+    See [**Steps: Set Up Workday Assistant for Staffing**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/cpl1612233420786.html).
+13. (Optional) Set optional fields as hidden, required, or not enterable on the Change Job template.
+    These functional areas are available for the
+    _Change Job_
+    business process:
+    - Change Job
+    - Change Organization Assignments for Worker
+    Workday only requires or hides the field if your template configuration includes the field. Example: You require the
+    **Employee Type**
+    field. Your change job template configuration hides the
+    **Administrative Details**
+    section. The initiator doesn’t see the
+    **Employee Type**
+    field, because that section is hidden.
+    If you hide the
+    **Close the current position?**
+    field using the
+    **Configure Optional Fields**
+    task, it will still display in the enhanced user interface. To hide the field, you must remove the
+    **What Do You Want To Do With This Person's Current Position?**
+    field from the
+    **Position Fields to Display**
+    field on the
+    **Maintain Change Job Templates**
+    task.
+    See [**Hide or Require Optional Fields**](https://doc.workday.com/admin-guide/en-us/manage-workday/business-processes/customize-business-processes/rok1490642112250.html).
+14. (Optional) [**Create Custom Notifications**](https://doc.workday.com/admin-guide/en-us/manage-workday/business-processes/business-process-notifications/dan1370797382653.html).
+    Set up email notifications to personal or work email addresses.
+    You can override the email template. If you use Notification Designer, you can create a template and enable it for the
+    _Custom Business Process_
+    notification category. You can use the notification template to send notifications when using the
+    _Change Job_
+    business process.
+15. (Optional) [**Maintain Localization Settings**](https://doc.workday.com/admin-guide/en-us/human-capital-management/country-specific-information-and-reporting/locally-required-information/lao1501254650250.html).
+    These fields use the proposed location instead of the current location for any staffing transaction:
+    - **Additional Job Classifications**
+    - **Work Shift**
+    - **Work Space**
+16. (Optional) Configure help text for change job.
+    You can create:
+    - Field-level support text in the UI using QuickTips. See[**Steps: Configure QuickTips using Guidance Workspace**](https://doc.workday.com/admin-guide/en-us/manage-workday/user-experience/guidance-workspace/steps--manage-the-guidance-workspace.html).
+    - Help text for specific steps. As a related action on a Change Job business process step, select
+      **Business Process**
+      **Maintain Step Help-Text**
+      . When a user accesses a Change Job, they’ll see this text at the top of the page for the applicable step. Select a condition rule to display different help text to different audiences.
+17. (Optional) Set up countries tracking working time.
+    See [**Steps: Set Up Working Time Localized Fields**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/basic-staffing-information/fle1454017596771.html).
+18. (Optional) [**Add Worklets to Business Processes**](https://doc.workday.com/admin-guide/en-us/human-capital-management/worklets-and-reports-for-human-capital-management/dan1370796491407.html).
+    Configure embedded worklets to display when users complete a
+    _Change Job_
+    business process, including on subprocess steps.
+19. (Optional) [**Steps: Set Up Swap Positions**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/change-job/legacy-change-job/stepssetupswappositions.html).
+
+View job changes on worker profiles and in Workday standard reports.
+
+- Job changes display the reason type in a worker's history.
+- Staffing reports filter
+  _Change Job_
+  events by the reason type.
+
+You can cancel, rescind, or correct
+
+_Change Job_
+
+events. You can use the
+
+_Correct Change Job_
+
+web service to make make high volume corrections to Change Job business process events. You can use
+
+**correctChangeJob**
+
+mutation (secured to the
+
+_Staffing Actions: Correct Change Job (GraphQL)_
+
+domain) in version v4 of Workday Graph API, enabling Extend apps to correct change job data.
+
+The access that the initiator has to a Supervisory Organization determines the visibility of many
+
+_Change Job_
+
+fields. As a result, Workday might dynamically hide fields and sections from the initiator.
+
+Managers can initiate job changes across Workday. They can track the progress of job changes using the
+
+**My Team Management**
+
+dashboard.
+
+Set up out of order insertions for the
+
+_Change Job_
+
+business process.
