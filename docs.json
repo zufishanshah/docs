@@ -84,6 +84,17 @@
       {
         "tab": "testzs",
         "pages": [
+          "untitled-page",
+          "untitled-page",
+          "untitled-page",
+          "test"
+        ]
+      },
+      {
+        "tab": "Test2",
+        "pages": [
+          "untitled-page",
+          "test-page",
           "untitled-page"
         ]
       }
