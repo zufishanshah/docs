@@ -1,0 +1,198 @@
+---
+title: "Hire Employees"
+---
+
+- Select an ID definition, configure job requisitions, and specify whether to permit overrides of hiring restrictions on the
+  **Edit Tenant Setup - HCM**
+  task.
+- Create jobs or positions.
+- Create categories and reasons for hiring employees on the
+  **Maintain Event Categories and Reasons**
+  task.
+- Configure optional fields for the
+  **Search for Person**
+  and
+  **Search Results**
+  interfaces of the
+  **Hire Employee**
+  task:
+  - Each field is secured through existing domain or security constraints.
+  - Additional worker data is secured through terminated worker security. Terminated workers' information only displays if you're part of a security group that has access to terminated worker information. See: [**FAQ: Terminations**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/hire-and-terminate/bwz1497990098885.html).
+
+You can hire a pre-hire or former worker into a job or position in your organization. This position automatically becomes the worker's primary position.
+
+If you use job requisitions, confirm that you have an open and approved job requisition.
+
+When completing the hiring details, many of the fields populate with values defined on the job profile, position or job requisition. If you use job requisitions, you can't change those values; update the job requisition itself.
+
+1. Access the
+   **Hire Employee**
+   task.
+2. As you complete the task, consider:
+   | Option | Description |
+   | :-: | :-: |
+   | **Hire Date** | Select a date that's on or after the: <ul><li>**Recruiting Start Date** on the requisition if you use job requisitions.</li><li>**Earliest Hire Date** on the position if you don't use job requisitions.</li></ul> |
+   | **Reason** | Only reasons for the _Hire_ event are available. If you're automating the benefit enrollment process for new employees, Workday suggests you select a hire reason in this field. |
+   | **First Day of Work** | Populates from the **Hire Date** , but you can change it. Correcting the **Hire Date** automatically corrects this date. |
+   | **End Employment Date** | Available when you assign the worker to a fixed-term employee type in the **Employee Type** field. If you configured your tenant to synchronize employment and contract end dates, Workday populates this date whenever the employee's end date for their contract changes. |
+   | **Position** | For position management organizations, select: <ul><li>(If you use job requisitions), a position with an open, approved job requisition, and a **Recruiting Start Date** that's on or after the current date.</li><li>(If you don't use job requisitions), a position or job with an **Availability Date** that's on or after the current date.</li></ul> |
+   | **Job Requisition** | Based on selections on the **Edit Tenant Setup - HCM** task. If you selected: <ul><li>**Enable Job Requisitions for Job Management** , select Job Management.</li><li>**Require Job Requisitions for All Position Management staffing events** , you must make a selection for Position Management.</li><li>**Enable Job Requisitions for Position Management based on rules** , make a selection based on exit conditions defined on the _Hire_ business process. Requires a job requisition if defined on the _Hire_ business process. Example: An exit condition requires job requisitions for all hiring in Canada, but not elsewhere.</li></ul> |
+   | **Employee Type** | If the type is for fixed-term employees, specify an **End Employment Date** . |
+   | **Location** | Select from the locations you specified on the **Create Position** or **Set Hiring Restrictions** task, or from the primary or additional locations on the job requisition. |
+   | **Work Space** | Select from the work spaces (such as building, floor, or cubicle) associated with the **Location** . |
+   | **Job Profile** | Select from the profiles you specified on the **Create Position** or **Set Hiring Restrictions** task, unless you allow overrides at the tenant level. |
+   | **Job Title** | Populates from the **Job Profile** . |
+   | **Business title** | Populates from the **Job Title** . You can control the display of business titles by enabling the _Worker Data: Business Title on Worker Profile_ domain security policy in the Staffing functional area. |
+   | **Pay Rate Type** | Select from the pay rate types available for the country associated with the **Location** . |
+   | **Job Category** | Populates from the **Job Profile** . |
+   | **Job Classifications** | Populates from the **Job Profile** . |
+   | **Management Level from Job Profile** | Populates from the **Job Profile** . |
+   | **Additional Job Classifications** | Select classifications as needed. |
+   | **Company Insider Types** | Select from the types associated with the **Job Profile** . Define company insider types on the **Maintain Company Insider Types** task. Assign them to a job profile on the **Edit Job Profile** task. |
+   | **Workers' Compensation Code from Job Profile** | Populates from the **Job Profile** . |
+   | **Workers' Compensation Code Override** | Select an override for the compensation code. |
+   | **Appointment Type** | This field displays when you configure it on these tasks: <ul><li>**Maintain Appointment Type**</li><li>**Configure Optional Fields**</li></ul> This functionality supports US Federal agency requirements for classifying positions. You can also use the field for organizations that aren't related to US Federal by configuring custom field values. |
+   | **Employee Tenure** | This field displays when you configure it on these tasks: <ul><li>**Maintain Employee Tenure**</li><li>**Configure Optional Fields**</li></ul> This functionality supports US Federal agency requirements for classifying positions, and Personnel Action Request (PAR) processing. You can also use the field for organizations that aren't related to US Federal by configuring custom field values. |
+   | **Annuitant Indicator** | This field displays when you configure it on these tasks: <ul><li>**Maintain Annuitant Indicator**</li><li>**Configure Optional Fields**</li></ul> This functionality supports US Federal agency requirements for classifying positions, and Personnel Action Request (PAR) processing. You can also use the field for organizations that aren't related to US Federal by configuring custom field values. |
+   | **Time Type** | Select from the types you specified on the **Create Position** or **Set Hiring Restrictions** task, unless you allow overrides at the tenant level. Populates from the value defined on the job profile. |
+   | **Time Type Subtype** | This field displays when you configure it on these tasks: <ul><li>**Maintain Time Type Subtype**</li><li>**Configure Optional Fields**</li></ul> This functionality supports US Federal agency requirements for classifying positions, and Personnel Action Request (PAR) processing. You can also use the field for organizations that aren't related to US Federal by configuring custom field values. |
+   | **Scheduled Weekly Hours** | Populates from a rule when: <ul><li>You've defined a working time rule.</li><li>The data populated on the task applies the rule.</li></ul> Populates from the **Default Weekly Hours** if there's no working time rule. Populates based on the position restrictions when: <ul><li>You select the **Enable FTE for Position Restriction** check box on the **Edit Tenant Setup – HCM** task.</li><li>There's no work hours profile or job requisition for the position.</li></ul> |
+   | **Location Weekly Hours** | Displays the standard weekly hours associated with the **Location** . |
+   | **Default Weekly Hours** | Populates from a rule when: <ul><li>You've defined a working time rule.</li><li>The data populated on the task applies the rule.</li></ul> Populates from the **Location Weekly Hours** field if there's no working time rule. Populates based on the position restrictions when: <ul><li>You select the **Enable FTE for Position Restriction** check box on the **Edit Tenant Setup – HCM** task.</li><li>There's no work hours profile or job requisition for the position.</li></ul> |
+   | **FTE** | Calculated by dividing the **Scheduled Weekly Hours** by the **Default Weekly Hours** . This value displays as a percentage. |
+   | **Specify a Paid FTE** | Available when you enable **Paid FTE** on the **Maintain Localization Settings** task. |
+   | **Paid FTE %** | You can enter a percentage that overrides the **FTE** field for use in your Workday Compensation and Workday Payroll calculations. Available when you enable **Paid FTE** on the **Maintain Localization Settings** task. |
+   | **Specify a Working FTE** | Available when you enable **Working FTE** on the **Maintain Localization Settings** task. For use in custom reporting. |
+   | **Working FTE %** | Used in custom reporting. Available when you enable **Working FTE** on the **Maintain Localization Settings** task. For use in custom reporting. |
+   | **Work Shift** | Available when you enable **Work Shift** on the **Maintain Localization Settings** task. Available when you select the **Work Shift Required** check box on the job profile. Define the work shifts for a location using the **Maintain Work Shifts** task. |
+   | **Frequency** | Select from the working time frequencies you specified on the **Maintain Frequencies** task. Available when you enable **Working Time (Frequency, Time Unit, and Time Value)** on the **Maintain Localization Settings** task. |
+   | **Unit** | Select from the preconfigured options of hours or days. Available when you enable **Working Time (Frequency, Time Unit, and Time Value)** on the **Maintain Localization Settings** task. |
+   | **Value** | Enter the duration of the working time in selected units. Automatically populates to zero. Available when you enable **Working Time (Frequency, Time Unit, and Time Value)** on the **Maintain Localization Settings** task. |
+   | **Continuous Service Date** | Populates from the **Hire Date** , but you can change it. Correcting the **Hire Date** automatically corrects this date. |
+   | **Benefits Service Date** | Enables you to track length of service for benefit programs. Example: Workers become eligible for insurance after a 3-month probation period. Available for use in user-defined calculations and eligibility rules. Workday empties the field during rehire. This service date only applies to employees. |
+   | **Company Service Date** | Enables you to track an additional service date, such as date of acquisition. Available for use in user-defined calculations and eligibility rules. Workday empties the field during rehire. This service date only applies to employees. |
+
+Workday:
+
+- Assigns the
+  _Employee as Self_
+  and
+  _All Employees_
+  security groups to the employee. If the
+  **Hire Date**
+  is in the future, Workday places the employee into the
+  _Pre-Employee as Self_
+  security group until the hire date.
+- Displays results for workers that:
+  - Have a future contract date.
+  - Have a future hire date.
+  - Have an in-progress contract or hire date.
+  - Are not eligible for hire.
+- Filters out active workers who don't have a termination date, and limits the results to 100.
+- Prevents you from selecting the check box for workers who aren't eligible for hire and provides additional help text.
+- Sets the status of the position and job requisition (if applicable) to
+  _Filled_
+  .
+
+You can assign a worker to additional jobs or positions on the
+
+**Add Job**
+
+task. Worker-related events, such as paychecks and time off, are based on the primary job or position. You can change the worker's primary job or position on the
+
+**Switch Primary Job**
+
+task.
+
+If you can access the
+
+_Worker Data: Current Staffing Information_
+
+domain, you can only see workers whose
+
+**Hire Date**
+
+is in the future .
+
+Correct or reverse a hire. From the employee's related actions menu, select
+
+**Worker History**
+
+**View Worker History**
+
+, and select either
+
+**Correct**
+
+or
+
+**Rescind**
+
+from the related actions menu of the
+
+_Hire_
+
+event. If the worker's position had a job requisition, it reopens when you rescind the event.
+
+If you rehire a former employee and that employee still has an active user account, Workday doesn't automatically disable that former employee's Workday account if you rescind a hire event for them.
+
+You can also correct the
+
+**Hire Date**
+
+and
+
+**Reason**
+
+for multiple employees using the
+
+**Mass Correct of Hire**
+
+task.
+
+If necessary, correct or remove the status of a rehired employee. Examples:
+
+- You terminated Maria while she was on a leave of absence. Because the leave type inactivates the employee, Maria's rehire employee status is also inactive.
+- Tom is a retiree, but no longer eligible for retiree status. Correct the status on the
+  **Remove Retiree Status**
+  task.
+
+We use the
+
+**Hire Date**
+
+to calculate the
+
+**Next Anniversary**
+
+date on the
+
+**Anniversaries for this week and next**
+
+report.
+
+[**Setup Considerations: Worker Start Date Corrections**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/staffing-history/jnb1566503274061.html)
+
+[**Concept: Opt-In Features**](https://doc.workday.com/admin-guide/en-us/manage-workday/tenant-configuration/tenant-setup/tye1597882269821.html)
+
+[**Concept: Rehire Former Workers**](https://doc.workday.com/admin-guide/en-us/human-capital-management/worker-information/former-workers/dan1385073237213.html)
+
+[**Concept: Updating Effective-Dated Custom Object Data**](https://doc.workday.com/admin-guide/en-us/manage-workday/tenant-configuration/custom-objects-and-labels/dan1370796495420.html)
+
+[**Setup Considerations: Autocomplete Staffing Events**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/tae1548867137128.html)
+
+[**Concept: Hire Employee Initiating Actions**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/hire-and-terminate/hire-and-terminate-concepts/lwu1580421106893.html)
+
+[**Concept: Workday Docs**](https://doc.workday.com/admin-guide/en-us/manage-workday/tenant-configuration/content-management/docs-for-business-processes/hez1629396501850.html)
+
+[**Rehire a Retiree**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/retirees/dan1370797156051.html)
+
+[**Convert Contingent Workers to Employees**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/contingent-worker-staffing/dan1370797156671.html)
+
+[**Add Additional Jobs**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/multiple-jobs/dan1370797153672.html)
+
+[**Steps: Set Up Worker Onboarding**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/onboarding/onboarding-dashboard/dan1370797177262.html)
+
+[**Correct Hire Date and Reason for Multiple Employees**](https://doc.workday.com/admin-guide/en-us/human-capital-management/staffing/staffing-history/kur1422919977062.html)
+
+[**Hide or Require Optional Fields**](https://doc.workday.com/admin-guide/en-us/manage-workday/business-processes/customize-business-processes/rok1490642112250.html)

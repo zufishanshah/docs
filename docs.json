@@ -82,9 +82,16 @@
         ]
       },
       {
-        "tab": "testzs",
+        "tab": "How to Cut Watermelon",
         "pages": [
-          "job-ar"
+          {
+            "group": "Watermelon Juice",
+            "pages": [
+              "steps",
+              "hire-employees"
+            ]
+          },
+          "untitled-page"
         ]
       }
     ]
