@@ -80,18 +80,6 @@
             ]
           }
         ]
-      },
-      {
-        "tab": "testzs",
-        "pages": [
-          "test"
-        ]
-      },
-      {
-        "tab": "Test2",
-        "pages": [
-          "test-page"
-        ]
       }
     ]
   },
