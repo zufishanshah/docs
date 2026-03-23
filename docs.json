@@ -83,15 +83,15 @@
       },
       {
         "tab": "How to Cut Watermelon",
-        "pages": [
+        "groups": [
           {
             "group": "Watermelon Juice",
             "pages": [
               "steps",
-              "hire-employees"
+              "hire-employees",
+              "test"
             ]
-          },
-          "untitled-page"
+          }
         ]
       }
     ]
